@@ -1,59 +1,61 @@
 import streamlit as st
 
-# --- DESIGN DE ELITE ---
-st.set_page_config(page_title="AVS ELITE", page_icon="👑", layout="wide")
+# --- DESIGN DE ALTA PERFORMANCE ---
+st.set_page_config(page_title="AVS ELITE SYSTEM", page_icon="👑", layout="wide")
 st.markdown("""
     <style>
-    .main { background-color: #FAFAFA; }
+    .main { background-color: #F8F9FA; }
     .stButton>button { 
         background-color: #000000; color: #FFD700; font-weight: bold; 
-        font-size: 20px; border-radius: 5px; border: 2px solid #FFD700; height: 3.5em; 
+        font-size: 22px; border-radius: 2px; border: 2px solid #FFD700; height: 3.5em; 
     }
-    .stButton>button:hover { background-color: #FFD700; color: black; }
-    div[data-testid="stExpander"] { background-color: #FFFFFF !important; border: 1px solid #000 !important; border-radius: 0px; }
-    p, h1, h2, h3 { color: #000000 !important; font-family: 'Georgia', serif; }
+    h1, h2, h3 { color: #000000 !important; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 2px; }
+    .stExpander { background-color: #FFFFFF !important; border: 2px solid #000000 !important; }
+    p { color: #1A1A1A !important; font-size: 18px; line-height: 1.6; }
     </style>
     """, unsafe_allow_html=True)
 
-def gerar_estrategia_excepcional(p):
+def gerar_avs_excepcional(p):
     return {
-        "v1": f"🎬 **ROTEIRO 1: O CHOQUE DE LUXO (0-12s)**\n\n**Hook (0-3s):** Close extremo no borrifador soltando a névoa. Som de violino tenso.\n**Contexto (3-8s):** Corte rápido para você guardando o {p} em um cofre ou gaveta de veludo. Legenda: 'Existem perfumes. E existe o {p}.'\n**CTA (8-12s):** Olhar direto para a câmera. 'Não clique se você não aguenta ser notado.'",
-        "v2": f"🎬 **ROTEIRO 2: A ASSINATURA DO PODER (0-12s)**\n\n**Hook (0-3s):** Som de motor de carro esportivo. O {p} aparece no console.\n**Contexto (3-8s):** Transição de roupa comum para terno/vestido de gala ao segurar o frasco. Legenda: 'O cheiro da sua primeira vitória.'\n**CTA (8-12s):** 'Link na Bio. Poucas unidades para quem sabe o que quer.'",
-        "img": [
-            f"👑 **HERO:** {p} banhado por uma luz dourada lateral, sombras dramáticas.",
-            f"👑 **LIFESTYLE:** O {p} sobre uma mesa de mármore preto com uma taça de cristal ao lado.",
-            f"👑 **MACRO:** Foco na textura do vidro e no selo holográfico de realeza."
-        ],
-        "txt": {
-            "TikTok": f"Para de usar o que todo mundo usa. 🤫 O {p} não é um perfume, é um código de entrada para o topo. Fixação que atravessa o dia e rastro que silencia qualquer sala. Se quer ser comum, compre outro. Se quer ser elite, o carrinho laranja está aí. 💎🔥 #LuxoArabe #{p} #Poder",
-            "Instagram": f"A estética do sucesso é olfativa. 👑 O {p} traduz a imponência de quem não precisa pedir licença para chegar. Uma joia da perfumaria árabe agora ao seu alcance. Decida ser memorável hoje. Link na Bio. 🏺✨",
-            "Facebook": f"Para os poucos que buscam a perfeição: o {p} original finalmente chegou. Não é sobre cheiro, é sobre autoridade. Garanti o meu e o respeito é imediato. 👔💼",
-            "Site Google": f"Dossiê Técnico {p}: Uma obra-prima da engenharia olfativa oriental. Notas de Oud e especiarias finas que criam uma aura de exclusividade. Performance brutal de projeção e fixação de 12h+ na pele."
-        }
+        "titulo": f"🏆 O CÓDIGO DA SOBERANIA: {p.upper()} – A FRAGRÂNCIA QUE SILENCIA AMBIENTES.",
+        "corpo": f"""O {p} não é apenas um perfume, é uma arma de influência social. 
+        Enquanto o homem comum usa fragrâncias que desaparecem em minutos, o portador do {p} deixa um rastro de mistério e autoridade que permanece na memória por horas. 
+        Este é o ápice da engenharia árabe: uma explosão de especiarias finas que evolui para uma base amadeirada densa, projetada para quem não aceita ser ignorado. 
+        Se você busca ser 'apenas mais um', este conteúdo não é para você. Mas se você busca o topo, o {p} é sua nova assinatura de poder.""",
+        "v1": f"🎬 **CINEMATOGRAFIA 1 (O IMPACTO):**\n0-3s: Close no borrifador soltando a névoa em câmera lenta.\n3-9s: Transição rápida de uma roupa casual para um terno segurando o {p}.\n9-12s: Texto fixo na tela: 'Cheiro de quem manda'.",
+        "v2": f"🎬 **CINEMATOGRAFIA 2 (A TENTAÇÃO):**\n0-3s: Reação de uma mulher parando o passo para sentir o rastro.\n3-9s: O frasco do {p} iluminado por luz dourada sobre mármore preto.\n9-12s: Texto fixo: 'Sinta o peso do ouro árabe'.",
+        "msg_fixa": "💎 ITEM DE COLECIONADOR - ESTOQUE LIMITADO NO CARRINHO LARANJA.",
+        "hashtags": f"#perfumesarabes #luxomasculino #perfumaria #modahomem #{p.lower().replace(' ','')}"
     }
 
-st.title("👑 AVS ELITE | Engenharia de Desejo")
-produto = st.text_input("QUAL PRODUTO VAMOS ELEVAR AO TOPO?", placeholder="Ex: Lattafa Asad")
+st.title("👑 AVS ELITE | MÁQUINA DE DESEJO")
+produto = st.text_input("INSIRA O NOME DO PRODUTO PARA ELEVAR O PADRÃO:", placeholder="Ex: Lattafa Asad")
 
-if st.button("🚀 DISPARAR PROTOCOLO EXCEPCIONAL"):
+if st.button("🚀 ATIVAR PROTOCOLO EXCEPCIONAL"):
     if produto:
-        data = gerar_estrategia_excepcional(produto)
-        st.success(f"Protocolo de Luxo Ativado para {produto}")
+        res = gerar_avs_excepcional(produto)
+        st.success(f"Sistema Gerou Conteúdo de Superioridade para {produto}")
+
+        # --- TITULO E CORPO EXTRAORDINÁRIOS ---
+        st.markdown(f"## {res['titulo']}")
+        with st.container():
+            st.markdown(f"**{res['corpo']}**")
         
-        c1, c2, c3 = st.columns(3)
-        with c1:
-            st.markdown("### 📽️ CINEMATOGRAFIA")
-            with st.expander("VÍDEO 1: IMPACTO VISUAL", expanded=True): st.write(data["v1"])
-            with st.expander("VÍDEO 2: STATUS", expanded=True): st.write(data["v2"])
-        with c2:
-            st.markdown("### 📸 COMPOSIÇÃO DE ARTE")
-            for i in data["img"]: st.info(i)
-        with c3:
-            st.markdown("### ✍️ COPYWRITING DE ELITE")
-            for rede, texto in data["txt"].items():
-                with st.expander(f"ESTRATEGIA {rede}", expanded=True): st.write(texto)
-        
-        relatorio = f"PROTOCOLO EXCEPCIONAL AVS - {produto}\n\n" + data["v1"] + "\n\n" + data["v2"] + "\n\n" + "\n".join(data["txt"].values())
-        st.download_button("📥 BAIXAR DOSSIÊ DE LUXO", relatorio, file_name=f"AVS_ELITE_{produto}.txt")
+        st.divider()
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("📽️ ROTEIROS CINEMATOGRÁFICOS")
+            with st.expander("VÍDEO 1 - O IMPACTO", expanded=True): st.write(res["v1"])
+            with st.expander("VÍDEO 2 - A TENTAÇÃO", expanded=True): st.write(res["v2"])
+
+        with col2:
+            st.subheader("📱 ESTRATÉGIA DE REDE")
+            st.info(f"**📌 MENSAGEM FIXA:** {res['msg_fixa']}")
+            st.warning(f"**🔥 5# VIRAIS:** {res['hashtags']}")
+            
+            with st.expander("COPYWRITING TIKTOK SHOP", expanded=True):
+                st.write(f"Você não está comprando um perfume. Está comprando o respeito imediato. O {produto} é o segredo dos 1%. Clique no link e mude seu jogo.")
+
     else:
-        st.error("Insira o nome da joia (produto).")
+        st.error("Digite o nome da joia.")
