@@ -28,7 +28,7 @@ def motor_avs_total(p):
             "TIKTOK SHOP": f"O algoritmo vai parar para este rastro. {p} no carrinho laranja! 🛒",
             "INSTAGRAM": f"A estética do poder é olfativa. {p} é sua nova assinatura. 👑",
             "FACEBOOK": f"Para quem exige o original: {p} árabe. Autoridade e fixação bruta. 👔",
-            "SITE GOOGLE": f"Análise técnica {p}: Projeção de 3 metros e fixação de 12h+."
+            "SITE (A HISTÓRIA DO MITO)": f"📜 O DESPERTAR DE {p.upper()}\n\nNascido nas dunas do Oriente, o {p} não foi criado para agradar a todos, mas para destacar os poucos que lideram. Cada nota desta fragrância conta a história de uma conquista. Das notas de topo que impõem respeito imediato, ao fundo amadeirado que deixa um rastro de mistério e herança. Portar o {p} é carregar séculos de tradição árabe em uma engenharia moderna de sedução e poder. Não é apenas um perfume; é o registro olfativo da sua vitória."
         },
         "fixo": "💎 ITEM DE COLECIONADOR: ESTOQUE LIMITADO NO CARRINHO LARANJA.",
         "tags": f"#perfumesarabes #luxo #tiktokshop #autoridade #{p.lower().replace(' ','')} #viral"
