@@ -1,6 +1,6 @@
 import streamlit as st
 
-# --- CONFIGURAÇÃO DE DESIGN (BRANCO E PRETO) ---
+# --- DESIGN DE ALTA PERFORMANCE (BRANCO E PRETO) ---
 st.set_page_config(page_title="AVS ELITE SYSTEM", page_icon="👑", layout="wide")
 
 st.markdown("""
@@ -20,28 +20,33 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- MOTOR DE INTELIGÊNCIA COMPLETA ---
+# --- MOTOR DE INTELIGÊNCIA EXCEPCIONAL ---
 def gerar_avs_elite_final(p):
     return {
         "titulo": f"🏆 O CÓDIGO DA SOBERANIA: {p.upper()} – A FRAGRÂNCIA QUE SILENCIA AMBIENTES.",
         "corpo": f"O {p} não é apenas um perfume, é uma arma de influência social. Enquanto o homem comum usa fragrâncias genéricas, o portador desta joia árabe deixa um rastro de autoridade inquestionável. Engenharia de luxo para quem não aceita ser ignorado.",
         
+        # --- ESTRUTURA VIRAL: 2 CENAS DE 06 SEGUNDOS ---
         "v1": f"""🎬 **VÍDEO 1: IMPACTO (12s | 9:16)**
-        - **0-3s:** Close macro no borrifador disparando. Escala Real.
-        - **3-6s:** Corte seco para o {p} sendo segurado firme na palma.
-        - **6-9s:** Perfume posicionado sobre mármore. Proporção real.
-        - **9-12s:** Texto Fixo: 'CHEIRO DE QUEM MANDA'.""",
+        
+**CENA 01 (0-06s): O GANCHO VISUAL**
+- Close macro no borrifador em câmera lenta disparando a névoa. O frasco ocupa 50% da tela (Escala Real). O foco é o brilho do líquido.
+
+**CENA 02 (06-12s): A POSSE DO LUXO**
+- Transição rápida para o {p} sendo segurado firme na palma da mão (Proporção 1:1). Texto Fixo na tela: 'CHEIRO DE QUEM MANDA'.""",
         
         "v2": f"""🎬 **VÍDEO 2: STATUS (12s | 9:16)**
-        - **0-3s:** Rastro olfativo. Pessoa vira o rosto ao sentir o {p}.
-        - **3-6s:** Close no brasão. Tamanho real do detalhe.
-        - **6-9s:** {p} sendo colocado no bolso interno de um terno.
-        - **9-12s:** Texto Fixo: 'SINTA O PESO DO OURO'.""",
+        
+**CENA 01 (0-06s): A REAÇÃO SOCIAL**
+- Alguém parando o passo e virando o rosto ao sentir o rastro do {p}. Foco na reação de surpresa e desejo.
+
+**CENA 02 (06-12s): A MARCA DO PODER**
+- Close no brasão e detalhes dourados do {p} (Escala Real). Texto Fixo na tela: 'SINTA O PESO DO OURO ÁRABE'.""",
         
         "imagens": [
-            f"📸 **IMAGEM 1 (9:16):** {p} na palma da mão masculina (Escala 1:1).",
-            f"📸 **IMAGEM 2 (9:16):** {p} ao lado de um relógio de 42mm (Trava de Tamanho).",
-            f"📸 **IMAGEM 3 (9:16):** Close 90% preenchido pela tampa e selo."
+            f"📸 **IMAGEM 1 (9:16) - ESCALA REAL:** {p} na palma da mão masculina. O frasco deve ocupar da base da palma até o topo dos dedos.",
+            f"📸 **IMAGEM 2 (9:16) - PROPORÇÃO:** {p} posicionado ao lado de um relógio de 42mm (Trava de percepção de tamanho real).",
+            f"📸 **IMAGEM 3 (9:16) - DETALHE:** Close 90% preenchido pela tampa e selo de originalidade (Foco na textura)."
         ],
         
         "textos": {
@@ -57,7 +62,7 @@ def gerar_avs_elite_final(p):
 
 # --- INTERFACE ---
 st.title("👑 AVS ELITE | MÁQUINA DE PRODUÇÃO TOTAL")
-produto = st.text_input("NOME DO PRODUTO PARA ELEVAR O PADRÃO:", placeholder="Ex: Lattafa Asad")
+produto = st.text_input("NOME DO PERFUME:", placeholder="Ex: Lattafa Asad")
 
 if st.button("🚀 ATIVAR PROTOCOLO DE SUPERIORIDADE"):
     if produto:
@@ -70,12 +75,12 @@ if st.button("🚀 ATIVAR PROTOCOLO DE SUPERIORIDADE"):
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.markdown("### 📽️ VÍDEOS (9:16)")
+            st.markdown("### 📽️ VÍDEOS (2x 06s)")
             with st.expander("ROTEIRO VÍDEO 1", expanded=True): st.write(res["v1"])
             with st.expander("ROTEIRO VÍDEO 2", expanded=True): st.write(res["v2"])
 
         with col2:
-            st.markdown("### 🎨 IMAGENS (9:16)")
+            st.markdown("### 🎨 IMAGENS (9:16 | ESCALA REAL)")
             for img in res["imagens"]: st.info(img)
 
         with col3:
@@ -86,5 +91,5 @@ if st.button("🚀 ATIVAR PROTOCOLO DE SUPERIORIDADE"):
                 with st.expander(f"POST {rede}", expanded=True): st.write(copy)
 
         # DOWNLOAD COMPLETO
-        txt_final = f"{res['titulo']}\n\n{res['corpo']}\n\n{res['v1']}\n\n{res['v2']}\n\n" + "\n".join(res["imagens"]) + "\n\n" + res["msg_fixa"]
-        st.download_button("📥 BAIXAR DOSSIÊ TOTAL", txt_final, file_name=f"AVS_ELITE_{produto}.txt")
+        txt_final = f"{res['titulo']}\n\n{res['corpo']}\n\n{res['v1']}\n\n{res['v2']}\n\n" + "\n".join(res["imagens"]) + f"\n\n{res['msg_fixa']}\n{res['hashtags']}"
+        st.download_button("📥 BAIXAR PACOTE TOTAL", txt_final, file_name=f"AVS_ELITE_{produto}.txt")
