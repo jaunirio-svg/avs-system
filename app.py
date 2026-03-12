@@ -1,77 +1,56 @@
 import streamlit as st
-import io
 
-# --- CONFIGURAÇÃO DA PÁGINA ---
+# --- CONFIGURAÇÃO ---
 st.set_page_config(page_title="AVS NETWORK", page_icon="💎", layout="wide")
 
-# CSS para o estilo Dark de Luxo
+# CSS Profissional (Melhora a visibilidade dos textos)
 st.markdown("""
     <style>
-    .stButton>button { background-color: #FFD700; color: black; font-weight: bold; width: 100%; border-radius: 10px; border: none; height: 3em; }
+    .stButton>button { background-color: #FFD700; color: black; font-weight: bold; width: 100%; border-radius: 10px; height: 3em; border: none; }
     .main { background-color: #000000; color: white; }
-    div[data-testid="stExpander"] { background-color: #1a1a1a; border-radius: 10px; }
+    .stExpander { background-color: #1a1a1a !important; border: 1px solid #333 !important; }
+    p { color: #ffffff !important; font-size: 16px; }
     </style>
     """, unsafe_allow_html=True)
 
-# --- MOTOR DE INTELIGÊNCIA AVS ---
-def processar_avs_completo(produto):
+def gerar_conteudo(prod):
     return {
-        "videos": [
-            {"titulo": "🎬 VÍDEO 1: IMPACTO (0-12s)", "c1": f"0-6s: Gancho focado no peso e na exclusividade do {produto}.", "c2": "6-12s: Revelação do frasco + Chamada para o Carrinho Laranja."},
-            {"titulo": "🎬 VÍDEO 2: STATUS (0-12s)", "c1": f"0-6s: Close macro nos detalhes dourados e textura do {produto}.", "c2": "6-12s: Borrifada em slow motion + Link na Bio."}
+        "v": [
+            f"**Cena 1 (0-6s):** Gancho visual no frasco de {prod}.\n**Cena 2 (6-12s):** CTA para o Carrinho Laranja.",
+            f"**Cena 1 (0-6s):** Close no brasão de luxo do {prod}.\n**Cena 2 (6-12s):** 'Link na Bio' para compra."
         ],
-        "imagens": [
-            f"🖼️ HERO: {produto} centralizado com iluminação premium.",
-            f"🖼️ LIFESTYLE: {produto} em cenário de alto padrão (couro/mármore).",
-            f"🖼️ CLOSE: Macro nos detalhes da tampa e selo de autenticidade."
-        ],
-        "textos": {
-            "TikTok": f"O segredo da perfumaria árabe revelado. 💎 {produto} é presença garantida. Garanta o seu no carrinho! #Perfumaria #Luxo #Asad",
-            "Instagram": f"A elegância é silenciosa, mas marcante. Conheça o {produto}, sua nova assinatura de elite. 👑 #Status #Rolex",
-            "Facebook": f"Oportunidade única: Encontrei o {produto} original. Qualidade absoluta e fixação eterna. Recomendo!",
-            "Site (SEO)": f"Análise Técnica: O {produto} redefine o conceito de projeção. Notas de topo especiadas com fundo amadeirado de alta performance."
+        "i": [f"📸 HERO: {prod} em destaque.", f"📸 LIFESTYLE: {prod} em cenário premium.", f"📸 CLOSE: Detalhes do selo."],
+        "t": {
+            "TikTok": f"O segredo árabe: {prod}. 💎 #Perfume #TikTokShop",
+            "Instagram": f"Sinta o poder de {prod}. A sua nova assinatura. 👑",
+            "Facebook": f"Perfume {prod} original disponível. Qualidade garantida!",
+            "Site (SEO)": f"Análise técnica do {prod}: Fixação e projeção de elite."
         }
     }
 
-# --- INTERFACE ---
-st.title("💎 AVS NETWORK - Inteligência Autônoma")
-st.write("Plataforma Multi-Produto do Almir")
+st.title("💎 AVS NETWORK | Painel de Controle")
+produto = st.text_input("NOME DO PRODUTO:", placeholder="Ex: Fakhar Black")
 
-produto_input = st.text_input("AVS START COMMAND (NOME DO PRODUTO):", placeholder="Ex: Asad, Fakhar, 9PM...")
-
-if st.button("🚀 GERAR ESTRATÉGIA COMPLETA"):
-    if produto_input:
-        # Gera o conteúdo real
-        dados = processar_avs_completo(produto_input)
+if st.button("🚀 GERAR 9 CONTEÚDOS AGORA"):
+    if produto:
+        res = gerar_conteudo(produto)
+        st.success(f"PRODUÇÃO CONCLUÍDA para {produto}")
         
-        st.success(f"PRODUÇÃO CONCLUÍDA: 9 Conteúdos gerados para {produto_input}")
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            st.subheader("🎥 VÍDEOS")
+            for i, v in enumerate(res["v"]):
+                with st.expander(f"Vídeo {i+1}", expanded=True): st.write(v)
+        with c2:
+            st.subheader("🎨 IMAGENS")
+            for img in res["i"]: st.info(img)
+        with c3:
+            st.subheader("📱 TEXTOS")
+            for rede, txt in res["t"].items():
+                with st.expander(rede): st.write(txt)
         
-        # Distribuição em Colunas
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            st.header("🎥 VÍDEOS (2)")
-            for v in dados["videos"]:
-                with st.expander(v["titulo"], expanded=True):
-                    st.write(f"**Cena 1:** {v['c1']}")
-                    st.write(f"**Cena 2:** {v['c2']}")
-
-        with col2:
-            st.header("🎨 IMAGENS (3)")
-            for img in dados["imagens"]:
-                st.info(img)
-
-        with col3:
-            st.header("📱 TEXTOS (4)")
-            for rede, txt in dados["textos"].items():
-                with st.expander(rede):
-                    st.write(txt)
-        
-        # Função de Download
-        relatorio = f"PRODUTO: {produto_input}\n" + "="*30 + "\n"
-        for k, v in dados["textos"].items():
-            relatorio += f"\n[{k}]: {v}"
-        
-        st.download_button(label="📥 BAIXAR PACOTE TXT", data=relatorio, file_name=f"AVS_{produto_input}.txt", mime="text/plain")
+        # DOWNLOAD
+        txt_final = f"PRODUTO: {produto}\n\n" + "\n".join([f"{k}: {v}" for k,v in res["t"].items()])
+        st.download_button("📥 BAIXAR PACOTE DE TEXTOS", txt_final, file_name=f"AVS_{produto}.txt")
     else:
-        st.error("Por favor, digite o nome de um produto acima.")
+        st.error("Digite o nome de um produto.")
