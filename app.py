@@ -1,85 +1,59 @@
 import streamlit as st
 
-# --- CONFIGURAÇÃO VISUAL (Cores Claras para Melhor Ver) ---
-st.set_page_config(page_title="AVS NETWORK", page_icon="💎", layout="wide")
-
+# --- DESIGN DE ELITE ---
+st.set_page_config(page_title="AVS ELITE", page_icon="👑", layout="wide")
 st.markdown("""
     <style>
-    /* Fundo claro para facilitar a visão */
-    .main { background-color: #F5F5F5; color: #000000; }
-    
-    /* Botão Amarelo Vibrante do seu print */
+    .main { background-color: #FAFAFA; }
     .stButton>button { 
-        background-color: #FFD700; color: black; font-weight: bold; 
-        width: 100%; border-radius: 8px; border: 2px solid #CCAC00; height: 3.5em; 
+        background-color: #000000; color: #FFD700; font-weight: bold; 
+        font-size: 20px; border-radius: 5px; border: 2px solid #FFD700; height: 3.5em; 
     }
-    
-    /* Caixas de texto brancas com bordas nítidas */
-    div[data-testid="stExpander"] { 
-        background-color: #FFFFFF !important; 
-        border: 1px solid #D1D1D1 !important; 
-        border-radius: 10px;
-        color: #000000 !important;
-    }
-    
-    /* Garantir que todo texto seja PRETO para leitura */
-    p, span, label, h1, h2, h3 { color: #000000 !important; font-weight: 500; }
-    .stInfo { background-color: #E3E3E3; color: black; border: none; }
+    .stButton>button:hover { background-color: #FFD700; color: black; }
+    div[data-testid="stExpander"] { background-color: #FFFFFF !important; border: 1px solid #000 !important; border-radius: 0px; }
+    p, h1, h2, h3 { color: #000000 !important; font-family: 'Georgia', serif; }
     </style>
     """, unsafe_allow_html=True)
 
-# --- MOTOR DE CONTEÚDO REAL ---
-def gerar_estrategia_avs(p):
+def gerar_estrategia_excepcional(p):
     return {
-        "v1": f"🎬 **ROTEIRO VÍDEO 1: UNBOXING IMPACTO**\n\n**0-6 segundos:** Close no movimento de abrir a caixa do {p}. Mostre o reflexo da luz no vidro.\n\n**6-12 segundos:** Borrifada no ar e legenda: 'O perfume árabe que fixa 12h+'. Clique no link!",
-        "v2": f"🎬 **ROTEIRO VÍDEO 2: STATUS E LUXO**\n\n**0-6 segundos:** Grave o {p} ao lado de um acessório de marca (relógio ou chave de carro).\n\n**6-12 segundos:** Texto na tela: 'Cheiro de quem manda no ambiente'. Garanta o seu agora!",
+        "v1": f"🎬 **ROTEIRO 1: O CHOQUE DE LUXO (0-12s)**\n\n**Hook (0-3s):** Close extremo no borrifador soltando a névoa. Som de violino tenso.\n**Contexto (3-8s):** Corte rápido para você guardando o {p} em um cofre ou gaveta de veludo. Legenda: 'Existem perfumes. E existe o {p}.'\n**CTA (8-12s):** Olhar direto para a câmera. 'Não clique se você não aguenta ser notado.'",
+        "v2": f"🎬 **ROTEIRO 2: A ASSINATURA DO PODER (0-12s)**\n\n**Hook (0-3s):** Som de motor de carro esportivo. O {p} aparece no console.\n**Contexto (3-8s):** Transição de roupa comum para terno/vestido de gala ao segurar o frasco. Legenda: 'O cheiro da sua primeira vitória.'\n**CTA (8-12s):** 'Link na Bio. Poucas unidades para quem sabe o que quer.'",
         "img": [
-            f"📸 FOTO 1: {p} em destaque (Fundo branco limpo).",
-            f"📸 FOTO 2: Mão segurando o {p} (Uso real).",
-            f"📸 FOTO 3: Macro no selo de originalidade (Confiança)."
+            f"👑 **HERO:** {p} banhado por uma luz dourada lateral, sombras dramáticas.",
+            f"👑 **LIFESTYLE:** O {p} sobre uma mesa de mármore preto com uma taça de cristal ao lado.",
+            f"👑 **MACRO:** Foco na textura do vidro e no selo holográfico de realeza."
         ],
         "txt": {
-            "TikTok": f"🚨 O perfume que viralizou! O {p} da Lattafa chegou. Fixação absurda e rastro de elogios. Garanta no carrinho! 🛒 #PerfumeArabe #{p}",
-            "Instagram": f"Sofisticação tem nome: {p}. 👑 Uma fragrância imponente para quem busca o topo. Link na Bio. 💎",
-            "Facebook": f"Dica: O {p} original é imbatível na fixação. Encontrei o estoque com preço justo aqui! 👔🔥",
-            "Site Google": f"Análise {p}: Perfume de alta performance, notas orientais e projeção marcante. O melhor custo-benefício de 2026."
+            "TikTok": f"Para de usar o que todo mundo usa. 🤫 O {p} não é um perfume, é um código de entrada para o topo. Fixação que atravessa o dia e rastro que silencia qualquer sala. Se quer ser comum, compre outro. Se quer ser elite, o carrinho laranja está aí. 💎🔥 #LuxoArabe #{p} #Poder",
+            "Instagram": f"A estética do sucesso é olfativa. 👑 O {p} traduz a imponência de quem não precisa pedir licença para chegar. Uma joia da perfumaria árabe agora ao seu alcance. Decida ser memorável hoje. Link na Bio. 🏺✨",
+            "Facebook": f"Para os poucos que buscam a perfeição: o {p} original finalmente chegou. Não é sobre cheiro, é sobre autoridade. Garanti o meu e o respeito é imediato. 👔💼",
+            "Site Google": f"Dossiê Técnico {p}: Uma obra-prima da engenharia olfativa oriental. Notas de Oud e especiarias finas que criam uma aura de exclusividade. Performance brutal de projeção e fixação de 12h+ na pele."
         }
     }
 
-# --- INTERFACE ---
-st.title("💎 AVS NETWORK | Painel de Controle Profissional")
-st.subheader("Geração de Conteúdo em Massa")
+st.title("👑 AVS ELITE | Engenharia de Desejo")
+produto = st.text_input("QUAL PRODUTO VAMOS ELEVAR AO TOPO?", placeholder="Ex: Lattafa Asad")
 
-produto = st.text_input("DIGITE O NOME DO PERFUME:", placeholder="Ex: Lattafa Asad")
-
-if st.button("🚀 GERAR 9 CONTEÚDOS AGORA"):
+if st.button("🚀 DISPARAR PROTOCOLO EXCEPCIONAL"):
     if produto:
-        data = gerar_estrategia_avs(produto)
-        st.success(f"Tudo pronto para o {produto}!")
+        data = gerar_estrategia_excepcional(produto)
+        st.success(f"Protocolo de Luxo Ativado para {produto}")
         
         c1, c2, c3 = st.columns(3)
-        
         with c1:
-            st.markdown("### 🎥 VÍDEOS")
-            with st.expander("VER ROTEIRO VÍDEO 1", expanded=True):
-                st.write(data["v1"])
-            with st.expander("VER ROTEIRO VÍDEO 2", expanded=True):
-                st.write(data["v2"])
-
+            st.markdown("### 📽️ CINEMATOGRAFIA")
+            with st.expander("VÍDEO 1: IMPACTO VISUAL", expanded=True): st.write(data["v1"])
+            with st.expander("VÍDEO 2: STATUS", expanded=True): st.write(data["v2"])
         with c2:
-            st.markdown("### 🎨 IMAGENS")
-            for i in data["img"]:
-                st.info(i)
-
+            st.markdown("### 📸 COMPOSIÇÃO DE ARTE")
+            for i in data["img"]: st.info(i)
         with c3:
-            st.markdown("### 📱 TEXTOS")
+            st.markdown("### ✍️ COPYWRITING DE ELITE")
             for rede, texto in data["txt"].items():
-                with st.expander(f"POST {rede}", expanded=True):
-                    st.write(texto)
-                
-        st.divider()
-        # DOWNLOAD
-        full_text = f"AVS STRATEGY - {produto}\n\n" + data["v1"] + "\n\n" + data["v2"] + "\n\n" + "\n".join(data["txt"].values())
-        st.download_button("📥 BAIXAR PACOTE TXT", full_text, file_name=f"AVS_{produto}.txt")
+                with st.expander(f"ESTRATEGIA {rede}", expanded=True): st.write(texto)
+        
+        relatorio = f"PROTOCOLO EXCEPCIONAL AVS - {produto}\n\n" + data["v1"] + "\n\n" + data["v2"] + "\n\n" + "\n".join(data["txt"].values())
+        st.download_button("📥 BAIXAR DOSSIÊ DE LUXO", relatorio, file_name=f"AVS_ELITE_{produto}.txt")
     else:
-        st.error("Por favor, digite o nome do perfume primeiro.")
+        st.error("Insira o nome da joia (produto).")
